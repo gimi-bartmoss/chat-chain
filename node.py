@@ -37,7 +37,7 @@ class Node:
     def mine_block(self):
         """Package transactions from mempool and perform mining"""
         if not self.mempool:
-            print("⚠️ No transactions to mine")
+            print("No transactions to mine")
             return
 
         prev_hash = self.chain[-1]["hash"]
@@ -64,5 +64,5 @@ class Node:
             plaintext = hybrid_decrypt(recipient_sk, enc_data)
             return plaintext.decode("utf-8")
         except Exception as e:
-            print("❌ Decryption error:", e)
+            print("Decryption error:", e)
             return None
