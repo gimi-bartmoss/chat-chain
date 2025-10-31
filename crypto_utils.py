@@ -2,7 +2,6 @@ from cryptography.hazmat.primitives.asymmetric import x25519
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 import os
 import base64
-import json
 
 def generate_keypair():
     """Generate an X25519 key pair"""
