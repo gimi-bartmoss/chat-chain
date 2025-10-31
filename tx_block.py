@@ -9,7 +9,6 @@ def sha256_hex(obj):
     s = json.dumps(obj, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(s.encode("utf-8")).hexdigest()
 
-
 class Transaction:
     """Transaction object that encapsulates transaction data"""
     def __init__(self, payload):
@@ -17,7 +16,6 @@ class Transaction:
 
     def to_dict(self):
         return self.payload
-
 
 class Block:
     """Block object containing transactions, previous hash, difficulty, and mining logic"""
