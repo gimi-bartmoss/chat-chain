@@ -1,4 +1,4 @@
-# `crypto—utils.py`
+# `crypto_utils.py`
 
 ## Overview
 This module implements **hybrid encryption** using an ephemeral X25519 key pair for key exchange and AES-GCM for symmetric encryption.  
@@ -44,6 +44,8 @@ A JSON-serializable dictionary:
 3. Decrypt using AES-GCM and return the original plaintext.
 
 ---
+
+## Architecture Diagram
 
 ```mermaid
 flowchart TD
