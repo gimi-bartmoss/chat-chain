@@ -49,35 +49,26 @@ This module can serve as the foundation of a blockchain system, supporting:
 - Block validation and chain linking
 - Proof-of-Work simulation
 
-## Architecture Diagram
+# Flowchart
 
 ```mermaid
-classDiagram
-    direction TB
+flowchart TD
+    A[Start] --> B[Create Transaction Objects]
+    B --> C[Collect Transactions into List]
+    C --> D["Initialize Block (index, prev_hash, transactions, difficulty)"]
+    D --> E["Block.to_dict() → Build Block Data Structure"]
+    E --> F[Begin Mining Loop]
+    
+    subgraph Mining_Process
+        F --> G[Convert Block to JSON String]
+        G --> H[Compute SHA-256 Hash]
+        H --> I{Hash starts with N zeros?}
+        I -->|Yes| J[Set block.hash = hash_val]
+        I -->|No| K[Increment nonce]
+        K --> F
+    end
 
-    class sha256_hex {
-        +sha256_hex(obj)
-        calculate SHA-256
-    }
+    J --> L[Mining Complete]
+    L --> M[Return Valid Mined Block]
+    M --> N[End]
 
-    class Transaction {
-        -payload : dict
-        +__init__(payload)
-        +to_dict() dict
-    }
-
-    class Block {
-        -index : int
-        -prev_hash : str
-        -timestamp : int
-        -transactions : list
-        -difficulty : int
-        -nonce : int
-        -hash : str
-        +__init__(index, prev_hash, transactions, difficulty, nonce)
-        +to_dict() dict
-        +mine() None
-    }
-
-    sha256_hex <.. Block : uses
-    Transaction --> Block : "transactions list"
