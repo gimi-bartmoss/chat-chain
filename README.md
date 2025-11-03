@@ -11,3 +11,4 @@ For detailed explanation, see [`docs/crypto_utils.md`](docs/crypto_utils.md).
 
 This module implements a **minimal blockchain structure** — including transactions, blocks, and a proof-of-work mechanism.
 
+For detailed explanation, see [`docs/tx_block.md`](docs/tx_block.md).
